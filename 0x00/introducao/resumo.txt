@@ -1,0 +1,33 @@
+O que é microsserviços ?
+É um estilo de arquitetura de aplicações, onde um conjunto de pequenos serviços se comunicam através de APIs.
+Cada serviço tem uma tarefa específica a cumprir, é um pequeno pedaço que fazem o funcionamento da aplicação como um todo atingir seu objetivo.
+Assim, cada função de uma aplicação existe de mandeira indepentente, onde uma falha em determinado ponto, pode não causar a interrupção da aplicação.
+
+Visão geral da arquitetura Monolítica e de Microsserviços
+A arquitetura monolítica se baseia no acoplamento de todas as funções e serviços de uma aplicação, funcionando como uma única unidade.
+Quando uma nova funcionalidade é incluída, ou alguma melhoria é feita, a complexidade desta arquitetura aumenta.
+Já na arquitetura de microsserviços, as aplicações são criadas de modo que cada função principal é executada de maneira independente. É muito mais simples otimizar uma função separada sem impactar o restante da aplicação.
+
+Os benefícios da arquitetura de microsserviços - Cite 3 exemplos
+Existem alguns benefícios, como a eficiência dos times de desenvolvimento, com o desenvolvimento distribuído. Também é possível desenvolver vários microsserviços ao mesmo tempo, ou seja, simultaneamente, existem mais pessoas trabalhando no desenvolvimento da aplicação como um todo.
+Os ciclos de desenvolvimento são menores.
+A escalabilidade é outro ponto forte, pois à medida que a demanda por determinado serviço aumenta, é simples parametrizar a infra para aumentar recursos para atender àquela demanda.
+Também é mais simples implantar microsserviços do que um monolíto por inteiro.
+
+Quais são os tipos de comunicação entre os microsserviços ?
+Comunicação HTTP:
+Utiliza chamadas síncronas ou assíncronas via protocolos como REST ou gRPC.
+O serviço A chama diretamente o serviço B e espera uma resposta.
+É simples de implementar, mas cria forte acoplamento e depende da disponibilidade imediata do serviço chamado.
+
+Comunicação por mensagens:
+O serviço A envia uma mensagem com uma instrução clara para o serviço B, geralmente via fila (ex: RabbitMQ).
+Pode ser assíncrona, mas ainda há uma intenção explícita: o serviço B deve executar uma ação específica.
+O serviço A sabe quem deve receber e pode ou não esperar confirmação.
+Exemplo: “Fature o pedido 123”.
+
+Comunicação orientada a eventos:
+O serviço A publica um evento dizendo que algo aconteceu, sem direcionar a ação.
+Os serviços interessados (consumidores) decidem se e como reagir ao evento.
+O serviço A não sabe quem vai ouvir, nem se alguém vai.
+Exemplo: “Pedido 123 foi criado”.
